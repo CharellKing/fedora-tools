@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=XMind
+Comment=Launch XMind 3.3.1
+Exec=/opt/xmind/XMind
+Terminal=false
+Type=Application
+Icon=/opt/xmind/xmind-logo-35.png
+StartupNotify=true
+Categories=Office;
+MimeType=application/xmind;
