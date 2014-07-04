@@ -10,7 +10,14 @@ sudo yum install cmake
 
 sudo pip install ipython
 
-sudo yum install emacs
+sudo yum install emacs -y
+
+sudo yum install clang clang-devel
+
+cd ~/.emacs.d/iron*
+mkdir build
+cmake ..
+make && make install
 
 #start emacs to install package with proxy
 http_proxy=127.0.0.1:8086 emacs -nw

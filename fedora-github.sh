@@ -1,3 +1,4 @@
+rm -rf ~/.ssh/*
 sudo yum install git -y
 ssh-keygen -t rsa -C "CharellkingQu@gmail.com"
 sudo yum install xsel -y

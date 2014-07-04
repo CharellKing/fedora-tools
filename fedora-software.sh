@@ -1,5 +1,4 @@
 CUR_DIR=`pwd`
-mkdir download
 
 #===============================================
 #skype
@@ -25,18 +24,21 @@ sudo yum install wps-office* -y
 #===============================================
 #sogou
 #===============================================
-sudo yum remove ibus
 gsettings set org.gnome.settings-daemon.plugins.keyboard active false
-sudo yum install fcitx fcitx-devel fcitx-configtool
+sudo yum install fcitx fcitx-devel fcitx-configtool fcitx-table fcitx-table-chinese fcitx-pinyin im-chooser -y
 
-echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
-echo 'export QT_IM_MODULE=fcitx'  >> ~/.bashrc
-echo 'export XMODIFIERS="@im=fcitx"' >> ~/.bashrc
+if `grep -q "export GTK_IM_MODULE=fcitx" ~/.bashrc`; then
+    echo "has filled"
+else
+    echo 'export GTK_IM_MODULE=fcitx' >> ~/.bashrc
+    echo 'export QT_IM_MODULE=fcitx'  >> ~/.bashrc
+    echo 'export XMODIFIERS="@im=fcitx"' >> ~/.bashrc
+fi
+
 
 cd ${CUR_DIR}/download
-wget -c
-http://download.ime.sogou.com/1402921811/sogou_pinyin_linux_1.0.0.0033_amd64.deb?st=AeuQCdqOOXzmVolDebz9LA&e=1404460506&fn=sogou_pinyin_linux_1.0.0.0033_amd64.deb
-ar -vx sogou_pinyin_linux*
+wget -c http://download.ime.sogou.com/1402921811/sogou_pinyin_linux_1.0.0.0033_amd64.deb?st=1NMr9G4akc-sMYIzMisQrQ&e=1404492511&fn=sogou_pinyin_linux_1.0.0.0033_amd64.deb
+ar -vx *sogou_pinyin_linux*
 sudo tar zxvf data.tar.gz -C /
 sudo cp /usr/lib/x86_64-linux-gnu/fcitx/fcitx-sogoupinyin.so /usr/lib64/fcitx/
 sudo chmod +x /usr/lib64/fcitx/fcitx-sogoupinyin.so
@@ -49,7 +51,7 @@ wget -c http://dl2.xmind.net/xmind-downloads/xmind-linux-3.4.1.201401221918_amd6
 ar -vx xmind-linux*.deb
 tar xf data.tar.gz
 sudo cp -r usr/local/xmind/ /opt
-sudo cp -r user/share/ /usr/
+sudo cp -r usr/share/ /usr/
 tar xf control.tar.gz
 sudo sh postinst
 
@@ -75,16 +77,16 @@ sudo yum install flash-plugin
 sudo yum install gimp cheese unrar gnome-tweak-tool evince chmsee -y
 
 #=================================================
+#theme
+#=================================================
+wget -c -P ${CUR_DIR}/download/ https://satya164.github.io/fedy/fedy-installer
+chmod +x ${CUR_DIR}/download/fedy-installer
+sudo ${CUR_DIR}/download/fedy-installer
+sudo fedy -e numix_themes
+
+#=================================================
 #vedio, audio format
 #=================================================
 sudo yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/free/fedora/rpmfusion-free-release-stable.noarch.rpm -y
-sudo yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld
-xine-lib-extras-freeworld -y
-sudo yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore -y
-
-sudo yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/free/fedora/rpmfusion-free-release-stable.noarch.rpm
-sudo yum localinstall --nogpgcheck
-http://mirrors.163.com/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
-sudo yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld
-xine-lib-extras-freeworld
-sudo yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore
+sudo yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm -y
+sudo yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld xine-lib-extras-freeworld ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore -y
