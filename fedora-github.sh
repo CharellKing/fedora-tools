@@ -1,6 +1,6 @@
 rm -rf ~/.ssh/*
 sudo yum install git -y
-ssh-keygen -t rsa -C "CharellkingQu@gmail.com"
+ssh-keygen
 sudo yum install xsel -y
 cat ~/.ssh/id_rsa.pub | xsel -b -i
 echo "please paste public-key to github's setting, then any key for contiune"
