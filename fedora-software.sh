@@ -56,6 +56,9 @@ tar xf control.tar.gz
 sudo sh postinst
 
 #desktop
+icon=`find /opt/xmind -name "xmind-logo*.png"`
+echo $icon
+sed -i "s:/opt/xmind/xmind-logo.*.png:$icon:" ${CUR_DIR}/config/xmind.desktop
 sudo cp ${CUR_DIR}/config/xmind.desktop /usr/share/applications/
 
 #=================================================
