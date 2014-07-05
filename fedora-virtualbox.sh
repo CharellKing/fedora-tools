@@ -17,16 +17,17 @@ sudo yum install -y kernel-headers kernel-devel dkms
 #==================================================
 #set virtualbox usb
 #==================================================
+sudo gpasswd -a `whoami` vboxusers
 #add group usbfs and add user to usbfs
-sudo groupadd usbfs
-sudo sed -i "s/usbfs:x:[0-9]*:$/&`whoami`:/" /etc/group
+# sudo groupadd usbfs
+# sudo sed -i "s/usbfs:x:[0-9]*:$/&`whoami`:/" /etc/group
 
 #get usbfs id and add setting to "/etc/fstab"
-devgid=`grep "usbfs:x:[0-9]*:" /etc/group | cut -d ":" -f 3`
-setting="none /proc/bus/usb usbfs devgid=${devgid},devmode=664 0 0"
+# devgid=`grep "usbfs:x:[0-9]*:" /etc/group | cut -d ":" -f 3`
+# setting="none /proc/bus/usb usbfs devgid=${devgid},devmode=664 0 0"
 #stop adding setting duplicatly
-if `grep -q "${setting}" /etc/fstab`; then
-    echo "has filled"
-else
-    sudo echo ${setting} >> /etc/fstab
-fi
+# if `grep -q "${setting}" /etc/fstab`; then
+#     echo "has filled"
+# else
+#     sudo echo ${setting} >> /etc/fstab
+# fi
