@@ -1,4 +1,4 @@
-sudo yum install python-pip -y
+sudo yum install python-pip python-devel build-essential
 sudo pip install cpplint
 
 sudo yum install ruby -y
