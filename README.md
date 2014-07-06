@@ -2,7 +2,8 @@ fedora-tools
 ============
 
 Every time, reinstall system, I almost spend all the day tinkering on all kind of softwares and configurations. So I
-make a plan to script all the operations and simplify all the procedures.
+make a plan to script all the operations and simplify all the procedures. Now I only execute "sh fedora.sh", it can
+finish almost the tasks.
 
 
 sudo (fedora-sudoers.sh)
