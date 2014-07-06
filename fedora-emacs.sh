@@ -14,6 +14,9 @@ sudo yum install emacs -y
 
 sudo yum install clang clang-devel
 
+#for python
+sudo pip install jedi
+
 cd ~/.emacs.d/iron*
 mkdir build
 cmake ..
