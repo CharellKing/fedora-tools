@@ -93,4 +93,9 @@ sudo fedy -e numix_themes
 sudo yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/free/fedora/rpmfusion-free-release-stable.noarch.rpm -y
 sudo yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm -y
 sudo yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld
-xine-lib-extras-freeworld ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore vlc -y
+xine-lib-extras-freeworld ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore -y
+
+#==================================================
+#media
+#==================================================
+sudo yum install vlc gnome-baker -y
