@@ -98,4 +98,4 @@ xine-lib-extras-freeworld ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidco
 #==================================================
 #media
 #==================================================
-sudo yum install vlc gnome-baker -y
+sudo yum install vlc gnomebaker -y
